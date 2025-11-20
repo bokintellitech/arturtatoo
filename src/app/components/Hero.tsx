@@ -5,7 +5,7 @@ export default function Hero() {
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center">
       <div className="absolute inset-0">
-        <img src="/images/hero-bg.jpg" alt="Hero background" className="w-full h-full object-cover object-center opacity-70" />
+        <img src="src/public/images/hero-bg.jpg" alt="Hero background" className="w-full h-full object-cover object-center opacity-70" />
         <div className="absolute inset-0 bg-black/50"></div>
       </div>
 
