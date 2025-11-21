@@ -28,7 +28,7 @@ export default function Reservas() {
   };
 
   return (
-    <section id="reservas" className="py-20 bg-[#070707] text-white">
+    <section id="citas" className="py-20 bg-[#070707] text-white">
       <div className="container mx-auto max-w-xl px-6">
         <h3 className="text-4xl font-chicano text-center mb-10">Citas</h3>
 

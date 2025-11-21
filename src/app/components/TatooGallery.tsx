@@ -1,9 +1,8 @@
 'use client';
+
 import React, { useState, useEffect, useCallback } from 'react';
 import { X, ChevronLeft, ChevronRight, RotateCcw } from 'lucide-react';
 import Image from 'next/image';
-import Error from 'next/error';
-
 
 // Tipos TypeScript
 interface ImageData {
@@ -38,10 +37,13 @@ const TattooGallery: React.FC<GalleryProps> = ({
   // Generar array de imágenes disponibles
   useEffect(() => {
     const imageArray: ImageData[] = [];
+    // Asegurar que no haya doble barra en la ruta
+    const cleanPath = imagesPath.endsWith('/') ? imagesPath.slice(0, -1) : imagesPath;
+    
     for (let i = 1; i <= maxImages; i++) {
       imageArray.push({
         id: i,
-        src: `${imagesPath}/${imagePrefix}-${i}-800.${imageExtension}`,
+        src: `${cleanPath}/${imagePrefix}-${i}-800.${imageExtension}`,
         alt: `Tatuaje ${i}`
       });
     }
@@ -97,7 +99,7 @@ const TattooGallery: React.FC<GalleryProps> = ({
   // Manejar errores de imágenes
   const handleImageError = (id: number) => {
     setImageErrors(prev => new Set(prev).add(id));
-    
+    console.error(`Error loading image: ${images.find(img => img.id === id)?.src}`);
   };
 
   // Cargar más imágenes
@@ -116,20 +118,9 @@ const TattooGallery: React.FC<GalleryProps> = ({
   return (
     <div className="min-h-screen bg-black py-12 px-4">
       <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        {showHeader && (
-          <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              Galería de Arte
-            </h1>
-            <p className="text-gray-400 text-lg">
-              Explora nuestra colección
-            </p>
-          </div>
-        )}
-
-        {/* Masonry Grid */}
-        <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 xl:columns-5 2xl:columns-6 gap-4 space-y-4">
+        {/* Masonry Grid - Centrado */}
+        <div className="max-w-[1800px] mx-auto">
+          <div className="max-w-[1800px] columns-1 sm:columns-2 md:columns-3 lg:columns-4 xl:columns-5 2xl:columns-6 gap-4 space-y-4">
           {currentImages.map((image, index) => (
             <div
               key={image.id}
@@ -143,39 +134,39 @@ const TattooGallery: React.FC<GalleryProps> = ({
                     <div className="absolute inset-2 bg-gray-800 animate-pulse rounded" />
                   )}
                   
-                  {/* Error message */}
-                  {imageErrors.has(image.id) && (
-                    <div className="h-64 bg-gray-900 flex items-center justify-center text-gray-500 text-sm">
-                      Imagen no disponible
-                    </div>
-                  )}
-                  
                   {/* Imagen */}
-                  {!imageErrors.has(image.id) && (
-                    <div className="relative overflow-hidden bg-gray-900 h-64">
-                      <Image
-                        src={image.src}
-                        alt={image.alt}
-                        width={300}
-                        height={400}
-                        loading="lazy"
-                        onLoad={() => handleImageLoad(image.id)}
-                        onError={() => handleImageError(image.id)}
-                        className="w-full h-full object-cover transition-all duration-500 group-hover:scale-110 group-hover:brightness-75"
-                      />
-                      
-                      {/* Overlay en hover */}
-                      <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
-                        <span className="text-white text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                          Ver más
-                        </span>
+                  <div className="relative overflow-hidden bg-gray-900 h-64">
+                    <Image
+                      src={image.src}
+                      alt={image.alt}
+                      loading="lazy"
+                      width = {300}
+                      height = {400}
+                      onLoad={() => handleImageLoad(image.id)}
+                      onError={() => handleImageError(image.id)}
+                      className="w-full h-full object-cover transition-all duration-500 group-hover:scale-110 group-hover:brightness-75"
+                      style={{ display: imageErrors.has(image.id) ? 'none' : 'block' }}
+                    />
+                    
+                    {/* Error message */}
+                    {imageErrors.has(image.id) && (
+                      <div className="absolute inset-0 flex items-center justify-center text-gray-500 text-sm">
+                        Imagen no disponible
                       </div>
+                    )}
+                    
+                    {/* Overlay en hover */}
+                    <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
+                      <span className="text-white text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        Ver más
+                      </span>
                     </div>
-                  )}
+                  </div>
                 </div>
               </div>
             </div>
-          ))}
+                      ))}
+          </div>
         </div>
 
         {/* Botones de navegación */}
@@ -184,7 +175,7 @@ const TattooGallery: React.FC<GalleryProps> = ({
           {currentPage < totalPages && (
             <button
               onClick={loadMore}
-              className="bg-gradient-to-r from-yellow-600 to-yellow-500 text-black px-8 py-3 rounded-full font-semibold hover:from-yellow-500 hover:to-yellow-400 transition-all duration-300 shadow-lg hover:shadow-yellow-500/50"
+              className="bg-gradient-to-r from-yellow-600 chicano-subtitle to-yellow-500 text-black px-8 py-3 rounded-full font-semibold hover:from-yellow-500 hover:to-yellow-400 transition-all duration-300 shadow-lg hover:shadow-yellow-500/50"
             >
               Cargar más ({images.length - indexOfLastImage} restantes)
             </button>
@@ -194,7 +185,7 @@ const TattooGallery: React.FC<GalleryProps> = ({
           {currentPage > 1 && (
             <button
               onClick={resetGallery}
-              className="flex items-center gap-2 bg-gray-800 text-white px-8 py-3 rounded-full font-semibold hover:bg-gray-700 transition-all duration-300 shadow-lg"
+              className="flex items-center gap-2 bg-gray-800 chicano-subtitle text-white px-8 py-3 rounded-full font-semibold hover:bg-gray-700 transition-all duration-300 shadow-lg"
             >
               <RotateCcw size={20} />
               Volver al inicio
@@ -203,7 +194,7 @@ const TattooGallery: React.FC<GalleryProps> = ({
         </div>
 
         {/* Contador de páginas */}
-        <div className="text-center mt-8 text-gray-400">
+        <div className="text-center chicano-subtitle mt-8 text-gray-400">
           Página {currentPage} de {totalPages} • Mostrando {Math.min(indexOfLastImage, images.length)} de {images.length} imágenes
         </div>
       </div>
@@ -217,7 +208,7 @@ const TattooGallery: React.FC<GalleryProps> = ({
           {/* Botón cerrar */}
           <button
             onClick={closeModal}
-            className="absolute top-4 right-4 text-white hover:text-yellow-500 transition-colors z-50"
+            className="absolute top-4 right-4 text-white chicano-title hover:text-yellow-500 transition-colors z-50"
             aria-label="Cerrar"
           >
             <X size={32} />
@@ -265,7 +256,7 @@ const TattooGallery: React.FC<GalleryProps> = ({
                 />
                 
                 {/* Caption */}
-                <div className="mt-4 text-center text-black font-semibold">
+                <div className="mt-4 text-center text-black font-semibold chicano-subtitle">
                   {images[selectedImage].alt} ({selectedImage + 1} / {images.length})
                 </div>
               </div>
@@ -273,7 +264,7 @@ const TattooGallery: React.FC<GalleryProps> = ({
           </div>
 
           {/* Indicador de navegación */}
-          <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white text-sm bg-black bg-opacity-70 px-4 py-2 rounded-full border border-yellow-500/30">
+          <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white text-sm chicano-subtitle bg-black bg-opacity-70 px-4 py-1 rounded-full border border-yellow-500/30">
             Use ← → para navegar | ESC para cerrar
           </div>
         </div>

@@ -1,22 +1,41 @@
 @import "tailwindcss";
 
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* local chicano font */
-@font-face {
-  font-family: "Chicano";
-  src: url("/fonts/Chicano.ttf") format("truetype");
-  font-weight: 400 800;
-  font-style: normal;
-  font-display: swap;
+
+.chicano-title {
+  font-family: 'English Towne', 'Old English Text MT', serif;
+  text-shadow: 
+    0 0 10px rgba(234, 179, 8, 0.8),
+    0 0 20px rgba(234, 179, 8, 0.6),
+    0 0 30px rgba(234, 179, 8, 0.4),
+    2px 2px 4px rgba(0, 0, 0, 0.8);
+  letter-spacing: 2px;
+
 }
+
+.chicano-subtitle {
+  font-family: 'Olde-English ', 'Old English Text MT', serif;
+  text-shadow: 
+    0 0 10px rgba(116, 99, 23, 0.8),
+    0 0 20px rgba(148, 148, 37, 0.6),
+    0 0 30px rgba(160, 154, 154, 0),
+    2px 2px 4px rgba(0, 0, 0, 0.8);
+  letter-spacing: 2px;
+}
+
+
+
+/* local chicano font */
+
 
 /* root variables */
 :root {
-  --gold: #c9a56b;
-  --gold-dark: #a88955;
+  --gold: #da921f;
+  --gold-dark: #b48127;
 }
 
 /* small helpers */

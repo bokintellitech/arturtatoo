@@ -69,15 +69,15 @@ const ContactForm: React.FC<ContactFormProps> = ({ showHeader = true }) => {
                       formData.date && formData.time && formData.message;
 
   return (
-    <div className="min-h-screen bg-black py-16 px-4">
+    <div id="citas" className="min-h-screen bg-black py-16 px-4">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         {showHeader && (
-          <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <div className="text-center mb-12 ">
+            <h1 className="text-7xl md:text-7xl text-white chicano-title mb-4">
               Agenda tu Cita
             </h1>
-            <p className="text-gray-400 text-lg">
+            <p className="text-gray-400 text-xl chicano-subtitle">
               Convierte tu idea en arte permanente
             </p>
             <div className="mt-4 w-24 h-1 bg-gradient-to-r from-yellow-600 to-yellow-500 mx-auto"></div>
@@ -91,7 +91,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ showHeader = true }) => {
               <div className="space-y-6">
                 {/* Nombre */}
                 <div className="group">
-                  <label htmlFor="name" className="flex items-center gap-2 text-gray-300 mb-2 font-medium">
+                  <label htmlFor="name" className="flex items-center gap-2 chicano-subtitle text-gray-300 mb-2 font-medium">
                     <User size={18} className="text-yellow-500" />
                     Nombre Completo *
                   </label>
@@ -109,7 +109,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ showHeader = true }) => {
                 {/* Email y Teléfono */}
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="group">
-                    <label htmlFor="email" className="flex items-center gap-2 text-gray-300 mb-2 font-medium">
+                    <label htmlFor="email" className="flex items-center gap-2 chicano-subtitle text-gray-300 mb-2 font-medium">
                       <Mail size={18} className="text-yellow-500" />
                       Email *
                     </label>
@@ -125,7 +125,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ showHeader = true }) => {
                   </div>
 
                   <div className="group">
-                    <label htmlFor="phone" className="flex items-center gap-2 text-gray-300 mb-2 font-medium">
+                    <label htmlFor="phone" className="flex items-center gap-2 chicano-subtitle text-gray-300 mb-2 font-medium">
                       <Phone size={18} className="text-yellow-500" />
                       Teléfono *
                     </label>
@@ -144,7 +144,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ showHeader = true }) => {
                 {/* Fecha y Hora */}
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="group">
-                    <label htmlFor="date" className="flex items-center gap-2 text-gray-300 mb-2 font-medium">
+                    <label htmlFor="date" className="flex items-center gap-2 chicano-subtitle text-gray-300 mb-2 font-medium">
                       <Calendar size={18} className="text-yellow-500" />
                       Fecha Preferida *
                     </label>
@@ -161,7 +161,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ showHeader = true }) => {
                   </div>
 
                   <div className="group">
-                    <label htmlFor="time" className="flex items-center gap-2 text-gray-300 mb-2 font-medium">
+                    <label htmlFor="time" className="flex items-center gap-2 chicano-subtitle text-gray-300 mb-2 font-medium">
                       <Clock size={18} className="text-yellow-500" />
                       Hora Preferida *
                     </label>
@@ -170,7 +170,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ showHeader = true }) => {
                       name="time"
                       value={formData.time}
                       onChange={handleChange}
-                      className="w-full bg-black border-2 border-gray-800 rounded-lg px-4 py-3 text-white focus:border-yellow-500 focus:outline-none transition-colors duration-300 cursor-pointer"
+                      className="w-full bg-black border-2 chicano-subtitle border-gray-800 rounded-lg px-4 py-3 text-white focus:border-yellow-500 focus:outline-none transition-colors duration-300 cursor-pointer"
                     >
                       <option value="">Selecciona una hora</option>
                       {timeSlots.map(slot => (
@@ -182,7 +182,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ showHeader = true }) => {
 
                 {/* Mensaje */}
                 <div className="group">
-                  <label htmlFor="message" className="flex items-center gap-2 text-gray-300 mb-2 font-medium">
+                  <label htmlFor="message" className="flex items-center gap-2 chicano-subtitle text-gray-300 mb-2 font-medium">
                     <MessageSquare size={18} className="text-yellow-500" />
                     Describe tu idea *
                   </label>
@@ -205,7 +205,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ showHeader = true }) => {
                 >
                   {isSubmitting ? (
                     <>
-                      <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-black"></div>
+                      <div className="animate-spin rounded-full chicano-subtitle h-5 w-5 border-b-2 border-black"></div>
                       Enviando...
                     </>
                   ) : (
@@ -217,7 +217,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ showHeader = true }) => {
                 </button>
 
                 {/* Nota */}
-                <p className="text-gray-500 text-sm text-center">
+                <p className="text-white text-sm text-center chicano-subtitle">
                   * Todos los campos son obligatorios. Te contactaremos en las próximas 24 horas para confirmar tu cita.
                 </p>
               </div>
@@ -227,7 +227,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ showHeader = true }) => {
                 <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-yellow-600 to-yellow-500 rounded-full mb-6 animate-bounce">
                   <Check size={40} className="text-black" />
                 </div>
-                <h3 className="text-3xl font-bold text-white mb-4">
+                <h3 className="text-3xl font-bold chicano-subtitle text-white mb-4">
                   ¡Solicitud Enviada!
                 </h3>
                 <p className="text-gray-400 text-lg mb-2">
@@ -245,23 +245,23 @@ const ContactForm: React.FC<ContactFormProps> = ({ showHeader = true }) => {
         <div className="mt-12 grid md:grid-cols-3 gap-6 text-center">
           <div className="bg-gray-900 p-6 rounded-lg border border-gray-800">
             <Clock className="text-yellow-500 mx-auto mb-3" size={32} />
-            <h3 className="text-white font-bold mb-2">Horario</h3>
-            <p className="text-gray-400 text-sm">Lun - Sáb: 10:00 - 20:00</p>
-            <p className="text-gray-400 text-sm">Domingo: Cerrado</p>
+            <h3 className="text-white text-4xl chicano-title mb-2">Horario</h3>
+            <p className="text-gray-400 chicano-subtitle text-sm">Lun - Sáb: 10:00 - 20:00</p>
+            <p className="text-gray-400 chicano-subtitle text-sm">Domingo: Cerrado</p>
           </div>
 
           <div className="bg-gray-900 p-6 rounded-lg border border-gray-800">
             <Phone className="text-yellow-500 mx-auto mb-3" size={32} />
-            <h3 className="text-white font-bold mb-2">Teléfono</h3>
-            <p className="text-gray-400 text-sm">+52 123 456 7890</p>
-            <p className="text-gray-400 text-sm">WhatsApp disponible</p>
+            <h3 className="text-white text-4xl chicano-title mb-2">Teléfono</h3>
+            <p className="text-gray-400 chicano-subtitle text-sm">+52 123 456 7890</p>
+            <p className="text-gray-400 chicano-subtitle text-sm">WhatsApp disponible</p>
           </div>
 
           <div className="bg-gray-900 p-6 rounded-lg border border-gray-800">
             <Mail className="text-yellow-500 mx-auto mb-3" size={32} />
-            <h3 className="text-white font-bold mb-2">Email</h3>
-            <p className="text-gray-400 text-sm">info@tattoostudio.com</p>
-            <p className="text-gray-400 text-sm">Respuesta en 24hrs</p>
+            <h3 className="text-white text-4xl chicano-title mb-2">Email</h3>
+            <p className="text-gray-400 chicano-subtitle text-sm">info@tattoostudio.com</p>
+            <p className="text-gray-400 chicano-subtitle text-sm">Respuesta en 24hrs</p>
           </div>
         </div>
       </div>

@@ -10,17 +10,18 @@ export default function Hero() {
       </div>
 
       <div className="relative z-10 text-center px-6 max-w-3xl">
-        <motion.h1 initial={{ y: 16, opacity: 0 }} animate={{ y:0, opacity:1 }} transition={{ duration: .8 }} className="text-6xl md:text-7xl font-chicano text-white drop-shadow-lg">
+        <motion.h1 initial={{ y: 16, opacity: 0 }} animate={{ y:0, opacity:1 }} transition={{ duration: .8 }} className="text-6xl md:text-7xl chicano-title text-5xl text-white drop-shadow-lg">
           Artur Tatoo
         </motion.h1>
 
-        <motion.p initial={{ y: 10, opacity: 0 }} animate={{ y:0, opacity:1 }} transition={{ delay:.12, duration:.6 }} className="mt-4 text-xl text-gray-200">
+        <motion.p initial={{ y: 10, opacity: 0 }} animate={{ y:0, opacity:1 }} transition={{ delay:.12, duration:.6 }} className="mt-7 text-xl text-gray-200 chicano-subtitle">
           Fábrica de Chacales — Donde el arte chicano cobra vida.
         </motion.p>
 
+        
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay:.3 }} className="mt-8 flex gap-4 justify-center">
-          <a href="#galeria" className="px-6 py-3 rounded-full bg-[var(--gold)] text-black font-semibold shadow">Ver galería</a>
-          <a href="#contacto" className="px-6 py-3 rounded-full bg-[var(--gold)] text-black font-semibold shadow">Contactar</a>
+          <a href="#gallery" className="px-6 py-3 rounded-full bg-[var(--gold)] text-black chicano-subtitle font-semibold shadow">Ver galería</a>
+          <a href="#citas" className="px-6 py-3 rounded-full bg-[var(--gold)] text-black chicano-subtitle font-semibold shadow">Contactar</a>
         </motion.div>
       </div>
     </section>

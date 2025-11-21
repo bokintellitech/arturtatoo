@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import { Calendar, Clock, User, Mail, Phone, MessageSquare, Send, Check } from 'lucide-react';
 
@@ -8,7 +10,7 @@ interface FormData {
   date: string;
   time: string;
   message: string;
-}
+} 
 
 interface ContactFormProps {
   showHeader?: boolean;
@@ -90,7 +92,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ showHeader = true }) => {
               <div className="space-y-6">
                 {/* Nombre */}
                 <div className="group">
-                  <label htmlFor="name" className="flex items-center gap-2 text-gray-300 mb-2 font-medium">
+                  <label htmlFor="name" className="flex items-center gap-2 text-gray-300 mb-2 font-medium chicano-subtitle">
                     <User size={18} className="text-yellow-500" />
                     Nombre Completo *
                   </label>
@@ -108,7 +110,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ showHeader = true }) => {
                 {/* Email y Teléfono */}
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="group">
-                    <label htmlFor="email" className="flex items-center gap-2 text-gray-300 mb-2 font-medium">
+                    <label htmlFor="email" className="flex items-center gap-2 chicano-subtitle text-gray-300 mb-2 font-medium chicano-subtitle">
                       <Mail size={18} className="text-yellow-500" />
                       Email *
                     </label>
@@ -124,7 +126,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ showHeader = true }) => {
                   </div>
 
                   <div className="group">
-                    <label htmlFor="phone" className="flex items-center gap-2 text-gray-300 mb-2 font-medium">
+                    <label htmlFor="phone" className="flex items-center gap-2 text-gray-300 mb-2 font-medium chicano-subtitle">
                       <Phone size={18} className="text-yellow-500" />
                       Teléfono *
                     </label>
@@ -143,7 +145,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ showHeader = true }) => {
                 {/* Fecha y Hora */}
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="group">
-                    <label htmlFor="date" className="flex items-center gap-2 text-gray-300 mb-2 font-medium">
+                    <label htmlFor="date" className="flex items-center gap-2 text-gray-300 mb-2 font-medium chicano-subtitle">
                       <Calendar size={18} className="text-yellow-500" />
                       Fecha Preferida *
                     </label>
@@ -160,7 +162,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ showHeader = true }) => {
                   </div>
 
                   <div className="group">
-                    <label htmlFor="time" className="flex items-center gap-2 text-gray-300 mb-2 font-medium">
+                    <label htmlFor="time" className="flex items-center gap-2 text-gray-300 mb-2 font-medium chicano-subtitle">
                       <Clock size={18} className="text-yellow-500" />
                       Hora Preferida *
                     </label>
@@ -169,11 +171,11 @@ const ContactForm: React.FC<ContactFormProps> = ({ showHeader = true }) => {
                       name="time"
                       value={formData.time}
                       onChange={handleChange}
-                      className="w-full bg-black border-2 border-gray-800 rounded-lg px-4 py-3 text-white focus:border-yellow-500 focus:outline-none transition-colors duration-300 cursor-pointer"
+                      className="w-full bg-black border-2 border-gray-800 rounded-lg px-4 py-3 text-white chicano-subtitle focus:border-yellow-500 focus:outline-none transition-colors duration-300 cursor-pointer"
                     >
                       <option value="">Selecciona una hora</option>
                       {timeSlots.map(slot => (
-                        <option key={slot} value={slot}>{slot}</option>
+                        <option key={slot} value={slot}>{slot}</option> 
                       ))}
                     </select>
                   </div>
