@@ -22,7 +22,7 @@ export default function Navbar() {
 
   return (
     <nav className={clsx(
-      "fixed left-1/2 transform -translate-x-1/2 top-4 z-50 px-6 py-2 rounded-full shadow-xl border border-white/10 transition-all",
+      "fixed left-1/2 transform -translate-x-1/2 top-4 z-50 px-4 py-2 rounded-full shadow-xl border border-white/10 transition-all",
       scrolled ? "backdrop-blur-lg bg-black/60" : "bg-black/30"
     )} aria-label="Main navigation">
       <ul className="flex items-center gap-8">

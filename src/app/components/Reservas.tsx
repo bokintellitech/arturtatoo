@@ -30,11 +30,11 @@ export default function Reservas() {
   return (
     <section id="reservas" className="py-20 bg-[#070707] text-white">
       <div className="container mx-auto max-w-xl px-6">
-        <h3 className="text-4xl font-chicano text-center mb-10">Reservas</h3>
+        <h3 className="text-4xl font-chicano text-center mb-10">Citas</h3>
 
         <form
           onSubmit={onSubmit}
-          className="grid gap-6 bg-black/40 p-8 rounded-xl border border-white/5 shadow-lg"
+          className="grid gap-6 bg-black/60 p-10 rounded-xl border border-white/5 shadow-lg"
         >
           {/** NAME */}
           <div className="relative group">

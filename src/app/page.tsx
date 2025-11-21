@@ -1,11 +1,11 @@
 
-import Navbar from '@/app/components/Navbar';
-import Hero from '@//app/components/Hero';
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
 
-import Reservas from '@/app/components/Reservas';
-import WhatsAppButton from '@/app/components/WhatsAppButton';
-import Footer from '@/app/components/Footer';
-import TattooGallery from '@/app/components/TatooGallery';
+import WhatsAppButton from './components/WhatsAppButton';
+import Footer from './components/Footer';
+import TattooGallery from './components/TatooGallery';
+import ContactForm from './components/ContactForm';
 
 export default function Page() {
   return (
@@ -25,7 +25,7 @@ export default function Page() {
         
         <TattooGallery/>
       </section>
-        <Reservas />
+        <ContactForm />
       </main>
       <Footer />
       <WhatsAppButton number="5210000000000" />
