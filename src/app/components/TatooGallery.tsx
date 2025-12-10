@@ -24,7 +24,7 @@ const TattooGallery: React.FC<GalleryProps> = ({
   imagesPath = '/images',
   imagePrefix = 'img',
   imageExtension = 'jpeg',
-  maxImages = 100,
+  maxImages = 60,
   imagesPerPage = 12,
   showHeader = true
 }) => {
@@ -147,7 +147,7 @@ const TattooGallery: React.FC<GalleryProps> = ({
                       className="w-full h-full object-cover transition-all duration-500 group-hover:scale-110 group-hover:brightness-75"
                       style={{ display: imageErrors.has(image.id) ? 'none' : 'block' }}
                     />
-                    
+                   
                     {/* Error message */}
                     {imageErrors.has(image.id) && (
                       <div className="absolute inset-0 flex items-center justify-center text-gray-500 text-sm">
@@ -156,7 +156,7 @@ const TattooGallery: React.FC<GalleryProps> = ({
                     )}
                     
                     {/* Overlay en hover */}
-                    <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
+                    <div className="absolute inset-0  bg-black-20 bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
                       <span className="text-white text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         Ver más
                       </span>
@@ -249,12 +249,13 @@ const TattooGallery: React.FC<GalleryProps> = ({
           >
             <div className="bg-gradient-to-br from-yellow-600 via-yellow-500 to-yellow-700 p-[3px] shadow-2xl shadow-yellow-500/30">
               <div className="bg-white p-2">
-                <img
+                <Image
                   src={images[selectedImage].src}
                   alt={images[selectedImage].alt}
+                  width={300}
+                  height={400}
                   className="max-w-full max-h-[80vh] w-auto h-auto object-contain"
                 />
-                
                 {/* Caption */}
                 <div className="mt-4 text-center text-black font-semibold chicano-subtitle">
                   {images[selectedImage].alt} ({selectedImage + 1} / {images.length})

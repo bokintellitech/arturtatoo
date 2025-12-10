@@ -16,8 +16,7 @@ export default function Navbar() {
   const links = [
     { href: "#hero", icon: <Home size={18} />, label: "Inicio" },
     { href: "#gallery", icon: <Image size={18} />, label: "Galería" },
-    { href: waDir, target: "_blank", icon: <Phone size={18} />, label: "Contacto" },
-    { href: "#citas", icon: <Calendar size={18} />, label: "Citas" },
+    { href: "#footer", icon: <Phone size={18} />, label: "Contacto" }
   ];
 
   return (

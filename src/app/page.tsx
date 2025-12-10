@@ -1,11 +1,10 @@
 
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import WhatsAppButton from './components/WhatsAppButton';
+import {WhatsAppButton} from './components/WhatsAppButton';
 import Footer from './components/Footer';
 import TattooGallery from './components/TatooGallery';
 import ContactForm from './components/ContactForm';
-import FormData from './components/FormData';
 
 export default function Page() {
   return (
@@ -26,11 +25,12 @@ export default function Page() {
            
         <TattooGallery/>
       </section>
-        <ContactForm />
-        <FormData/>
+   
       </main>
+      <section id="footer">
       <Footer />
-      <WhatsAppButton number="525564392520" />
+      </section>
+      <WhatsAppButton />
     </>
   );
 }
